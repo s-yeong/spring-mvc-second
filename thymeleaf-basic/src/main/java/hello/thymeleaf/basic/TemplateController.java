@@ -19,4 +19,10 @@ public class TemplateController {
     public String layout() {
         return "template/layout/layoutMain";
     }
+
+    // 템플릿 레이아웃 확장 - html 전체
+    @GetMapping("/layoutExtend")
+    public String layoutExtend() {
+        return "template/layoutExtend/layoutExtendMain";
+    }
 }
