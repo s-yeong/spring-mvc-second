@@ -50,6 +50,13 @@ public class ValidationItemControllerV3 {
     public String addItem(@Validated @ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         // 검증 로직
+        // -> 메서드로 뽑기
+        if(item.getPrice() != null && item.getQuantity() != null) {
+            int resultPrice = item.getPrice() * item.getQuantity();
+            if (resultPrice < 100000) {
+                bindingResult.reject("totalPriceMin", new Object[]{10000, resultPrice}, null);
+            }
+        }
 
         // 검증에 실패하면 다시 입력 폼으로
         if(bindingResult.hasErrors()) {
