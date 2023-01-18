@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.UUID;
 
+/**
+ * request.getDispatcherType() 추가
+ */
 @Slf4j
 public class LogFilter implements Filter {
 
